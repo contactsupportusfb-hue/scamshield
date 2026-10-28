@@ -2,9 +2,9 @@ export const SITE = {
   name: 'VERITAS',
   tagline: 'BUREAU OF INVESTIGATION',
   blurb: 'A national investigation agency serving the public.',
-  phone: '+1 (555) 010-0100',
-  phoneHref: 'tel:+15550100100',
-  email: 'contact@veritas.gov.example',
+  phone: '+1 (779) 386-7948',
+  phoneHref: 'tel:+17793867948',
+  email: 'contactsupportusf@gmail.com',
 }
 
 export const NAV_LINKS = [
@@ -37,7 +37,7 @@ export const FOOTER_GROUPS = [
 export const SOCIALS = ['Twitter', 'LinkedIn', 'YouTube', 'RSS']
 
 export const OFFICES = [
-  { id: 'hq', name: 'Headquarters', city: 'Capital District', address: '100 Veritas Plaza, Capital District', phone: '+1 (555) 010-0100', x: 328, y: 105 },
+  { id: 'hq', name: 'Headquarters', city: 'Capital District', address: '100 Veritas Plaza, Capital District', phone: '+1 (779) 386-7948', x: 328, y: 105 },
   { id: 'ne', name: 'North-East Field Office', city: 'Harbor City', address: '45 Granite Street, Harbor City', phone: '+1 (555) 010-0145', x: 340, y: 88 },
   { id: 'wc', name: 'West Coast Field Office', city: 'Bayview', address: '800 Pacific Avenue, Bayview', phone: '+1 (555) 010-0180', x: 75, y: 135 },
   { id: 'mw', name: 'Midwest Field Office', city: 'Lakeport', address: '12 Meridian Road, Lakeport', phone: '+1 (555) 010-0212', x: 230, y: 95 },

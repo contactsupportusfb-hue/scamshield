@@ -1,3 +1,4 @@
+import SmartImage from '../components/SmartImage'
 import Icon from '../components/Icon'
 
 // Static content page ported from the Stitch design.
@@ -18,12 +19,12 @@ export default function About() {
       Founded on the principles of fidelity, bravery, and integrity, the Bureau exists to protect the public and uphold the rule of law against all adversaries, foreign and domestic.
     </p>
 <div className="grid grid-cols-2 gap-space-sm mt-space-sm">
-<div className="bg-surface-container rounded-xl p-space-md flex flex-col shadow-sm">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md flex flex-col shadow-sm">
 <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">ESTABLISHED</span>
 <span className="font-metric-lg text-metric-lg text-primary font-bold mt-1">1908</span>
 <span className="font-label-sm text-label-sm text-on-surface-variant">Sovereign Charter</span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md flex flex-col shadow-sm">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md flex flex-col shadow-sm">
 <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">FIELD DIVISIONS</span>
 <span className="font-metric-lg text-metric-lg text-primary font-bold mt-1">56</span>
 <span className="font-label-sm text-label-sm text-tertiary">Active National Reach</span>
@@ -36,7 +37,7 @@ export default function About() {
 <span className="font-label-caps text-label-caps text-on-surface-variant">DOC // 001-DIR</span>
 </div>
 <div className="flex flex-col gap-space-sm">
-<div className="bg-surface-container rounded-xl p-space-lg shadow-md transition-all duration-300 active:scale-[0.99] flex flex-col gap-space-xs">
+<div data-reveal className="bg-surface-container rounded-xl p-space-lg shadow-md transition-all duration-300 active:scale-[0.99] flex flex-col gap-space-xs">
 <div className="flex items-center gap-space-sm mb-space-xs">
 <div className="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-inner">
 <Icon name="explore" className="text-[24px]" />
@@ -50,7 +51,7 @@ export default function About() {
           Protect the nation from serious crime, threats to national security, and complex transnational activity with relentless diligence and precision.
         </p>
 </div>
-<div className="bg-surface-container rounded-xl p-space-lg shadow-md transition-all duration-300 active:scale-[0.99] flex flex-col gap-space-xs">
+<div data-reveal className="bg-surface-container rounded-xl p-space-lg shadow-md transition-all duration-300 active:scale-[0.99] flex flex-col gap-space-xs">
 <div className="flex items-center gap-space-sm mb-space-xs">
 <div className="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-inner">
 <Icon name="visibility" className="text-[24px]" />
@@ -64,7 +65,7 @@ export default function About() {
           A safer republic where justice is pursued impartially and truth is the ultimate arbiter across every jurisdiction and investigative domain.
         </p>
 </div>
-<div className="bg-surface-container rounded-xl p-space-lg shadow-md transition-all duration-300 active:scale-[0.99] flex flex-col gap-space-xs">
+<div data-reveal className="bg-surface-container rounded-xl p-space-lg shadow-md transition-all duration-300 active:scale-[0.99] flex flex-col gap-space-xs">
 <div className="flex items-center gap-space-sm mb-space-xs">
 <div className="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shadow-inner">
 <span className="material-symbols-outlined text-[24px]" style={{ fontVariationSettings: '\'FILL\' 1' }}>military_tech</span>
@@ -82,7 +83,7 @@ export default function About() {
 </section>
 <section className="px-margin-mobile py-space-md">
 <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-surface-container-high">
-<img className="w-full h-44 object-cover" src="/images/hq.jpg" />
+<SmartImage name="about-hq" alt="Bureau headquarters" label="Headquarters" icon="account_balance" className="w-full h-44" />
 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent flex flex-col justify-end p-space-md">
 <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase">HEADQUARTERS COMMAND</span>
 <span className="font-headline-sm text-headline-sm text-on-surface font-medium">Veritas Sovereign Annex</span>
@@ -95,7 +96,7 @@ export default function About() {
 <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-semibold">Executive team</h2>
 </div>
 <div className="flex flex-col gap-space-sm">
-<div className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
 <div className="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0 shadow-md">
           H
         </div>
@@ -107,7 +108,7 @@ export default function About() {
 <span className="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Director of Bureau Operations</span>
 </div>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
 <div className="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0 shadow-md">
           C
         </div>
@@ -119,7 +120,7 @@ export default function About() {
 <span className="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Deputy Director</span>
 </div>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
 <div className="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0 shadow-md">
           R
         </div>
@@ -131,7 +132,7 @@ export default function About() {
 <span className="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Assoc. Director, Intelligence</span>
 </div>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md flex items-center gap-space-md shadow-sm transition-all duration-200 active:scale-[0.99]">
 <div className="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-bold flex-shrink-0 shadow-md">
           V
         </div>
@@ -150,7 +151,7 @@ export default function About() {
 <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase">STRUCTURE</span>
 <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-semibold">Organizational structure</h2>
 </div>
-<div className="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg">
+<div data-reveal className="bg-surface-container rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg">
 <div className="flex flex-col gap-space-sm">
 <div className="flex items-center gap-space-xs">
 <span className="w-2 h-2 rounded-full bg-primary"></span>
@@ -234,7 +235,7 @@ export default function About() {
 <div className="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
 <span className="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/30"></span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
 <div className="flex items-center justify-between">
 <span className="font-metric-lg text-metric-lg text-on-surface font-bold">1908</span>
 <span className="font-label-caps text-label-caps text-primary">FOUNDATIONAL</span>
@@ -248,7 +249,7 @@ export default function About() {
 <div className="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
 <span className="w-2 h-2 rounded-full bg-primary"></span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
 <div className="flex items-center justify-between">
 <span className="font-metric-lg text-metric-lg text-on-surface font-bold">1945</span>
 <span className="font-label-caps text-label-caps text-tertiary">JURISDICTION</span>
@@ -262,7 +263,7 @@ export default function About() {
 <div className="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
 <span className="w-2 h-2 rounded-full bg-primary"></span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
 <div className="flex items-center justify-between">
 <span className="font-metric-lg text-metric-lg text-on-surface font-bold">1972</span>
 <span className="font-label-caps text-label-caps text-on-surface-variant">FORENSICS</span>
@@ -276,7 +277,7 @@ export default function About() {
 <div className="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
 <span className="w-2 h-2 rounded-full bg-primary"></span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
 <div className="flex items-center justify-between">
 <span className="font-metric-lg text-metric-lg text-on-surface font-bold">2001</span>
 <span className="font-label-caps text-label-caps text-primary">SECURITY</span>
@@ -290,7 +291,7 @@ export default function About() {
 <div className="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
 <span className="w-2 h-2 rounded-full bg-primary"></span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
 <div className="flex items-center justify-between">
 <span className="font-metric-lg text-metric-lg text-on-surface font-bold">2014</span>
 <span className="font-label-caps text-label-caps text-tertiary">CYBERSPACE</span>
@@ -304,7 +305,7 @@ export default function About() {
 <div className="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
 <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
 </div>
-<div className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
+<div data-reveal className="bg-surface-container rounded-xl p-space-md shadow-sm transition-transform duration-200 active:scale-[0.99]">
 <div className="flex items-center justify-between">
 <span className="font-metric-lg text-metric-lg text-primary font-bold">2026</span>
 <span className="font-label-caps text-label-caps px-space-xs py-0.5 rounded bg-primary-container text-on-primary font-bold">EXPANSION</span>

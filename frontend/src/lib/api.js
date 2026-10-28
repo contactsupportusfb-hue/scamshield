@@ -34,3 +34,4 @@ async function submit(table, localKey, prefix, row, guard) {
 
 export const submitReport = (data, guard) => submit('reports', 'veritas_reports', 'RPT', data, guard)
 export const submitMessage = (data, guard) => submit('messages', 'veritas_contact_messages', 'MSG', data, guard)
+export const submitApplication = (data, guard) => submit('applications', 'veritas_applications', 'APP', data, guard)

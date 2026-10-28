@@ -30,11 +30,11 @@ export const TESTIMONIALS = [
 export const ARREST_FILTERS = ['All', 'Financial', 'Organized', 'Cyber']
 
 export const ARRESTS = [
-  { ref: '24-AR-01203', category: 'Financial', title: 'Offshore Fraud Ring Dismantled', date: 'Oct 12, 2026', location: 'Capital District', summary: 'Seven suspects arrested in connection with a coordinated investment fraud scheme.',
+  { ref: '24-AR-01203', image: 'arrest-1', category: 'Financial', title: 'Offshore Fraud Ring Dismantled', date: 'Oct 12, 2026', location: 'Capital District', summary: 'Seven suspects arrested in connection with a coordinated investment fraud scheme.',
     details: ['Charges: wire fraud, money laundering, conspiracy', 'Estimated losses: $48 million across 1,200 victims', 'Lead office: Headquarters, Financial Crimes Division', 'Status: Awaiting trial'] },
-  { ref: '24-AR-01195', category: 'Organized', title: 'Cross-Border Trafficking Network', date: 'Oct 03, 2026', location: 'Harbor City', summary: 'A joint operation led to the arrest of twelve members of a racketeering syndicate.',
+  { ref: '24-AR-01195', image: 'arrest-2', category: 'Organized', title: 'Cross-Border Trafficking Network', date: 'Oct 03, 2026', location: 'Harbor City', summary: 'A joint operation led to the arrest of twelve members of a racketeering syndicate.',
     details: ['Charges: racketeering, trafficking, weapons offences', 'Joint operation with three regional partners', 'Lead office: North-East Field Office', 'Status: In custody, hearing scheduled'] },
-  { ref: '24-AR-01187', category: 'Cyber', title: 'Ransomware Operators Apprehended', date: 'Sep 21, 2026', location: 'Bayview', summary: 'Two operators of a ransomware group targeting hospitals were taken into custody.',
+  { ref: '24-AR-01187', image: 'arrest-3', category: 'Cyber', title: 'Ransomware Operators Apprehended', date: 'Sep 21, 2026', location: 'Bayview', summary: 'Two operators of a ransomware group targeting hospitals were taken into custody.',
     details: ['Charges: computer intrusion, extortion', 'Servers seized and decryption keys recovered', 'Lead office: West Coast Field Office, Cyber Crime Division', 'Status: Pre-trial detention'] },
 ]
 
@@ -49,10 +49,12 @@ export const PRESS = [
 ]
 
 export const GALLERY = [
-  { src: '/images/hq.jpg', caption: 'Bureau headquarters at dusk' },
-  { src: '/images/cyber.jpg', caption: 'Cyber Crime Division agents' },
-  { src: '/images/escort.jpg', caption: 'Special agents on operation' },
-  { src: '/images/taskforce.jpg', caption: 'Joint task force team' },
+  { name: 'gallery-1', caption: 'Bureau headquarters at dusk' },
+  { name: 'gallery-2', caption: 'Cyber Crime Division at work' },
+  { name: 'gallery-3', caption: 'Special agents on operation' },
+  { name: 'gallery-4', caption: 'Joint task force briefing' },
+  { name: 'gallery-5', caption: 'Forensics Lab evidence review' },
+  { name: 'gallery-6', caption: 'Community outreach session' },
 ]
 
 export const REPORT_CATEGORIES = [

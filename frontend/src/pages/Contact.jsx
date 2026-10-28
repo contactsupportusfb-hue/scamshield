@@ -46,7 +46,7 @@ export default function Contact() {
       </div>
 
       <h2 className="font-headline-md text-headline-md text-on-surface mt-8 mb-3">Our offices</h2>
-      <div className="bg-surface-container-low rounded-xl p-3">
+      <div data-reveal="pop" className="bg-surface-container-low rounded-xl p-3">
         <svg viewBox="0 0 400 200" className="w-full" role="img" aria-label="Map of office locations">
           <rect width="400" height="200" rx="10" fill="#111a2e" />
           <path d="M30 60 L110 40 L200 50 L300 40 L370 70 L360 120 L330 150 L250 160 L180 150 L120 170 L60 150 L35 110 Z" fill="#191f30" stroke="#4f4635" strokeWidth="1.5" />
@@ -61,7 +61,7 @@ export default function Contact() {
       </div>
       <div className="flex flex-col gap-2 mt-3">
         {OFFICES.map((o) => (
-          <button key={o.id} onClick={() => setOffice(o.id)} className={`text-left rounded-xl p-4 border ${office === o.id ? 'border-primary-container bg-surface-container' : 'border-transparent bg-surface-container-low'}`}>
+          <button key={o.id} data-reveal onClick={() => setOffice(o.id)} className={`text-left rounded-xl p-4 border ${office === o.id ? 'border-primary-container bg-surface-container' : 'border-transparent bg-surface-container-low'}`}>
             <div className="font-headline-sm text-headline-sm text-on-surface">{o.name}</div>
             <div className="font-body-sm text-body-sm text-on-surface-variant">{o.address}</div>
             <div className="font-body-sm text-body-sm text-primary">{o.phone}</div>

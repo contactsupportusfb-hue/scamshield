@@ -20,3 +20,6 @@ dist-ssr/
 .DS_Store
 *.log
 *.local
+
+# Private design references and unlicensed images: never commit or deploy
+design-reference/

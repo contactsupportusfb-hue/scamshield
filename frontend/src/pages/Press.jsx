@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import Icon from '../components/Icon'
+import SmartImage from '../components/SmartImage'
+import { SectionTitle } from '../components/Cards'
 import { PRESS, PRESS_FILTERS, GALLERY } from '../data/content'
 
 export default function Press() {
@@ -29,7 +31,7 @@ export default function Press() {
       <h1 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mt-1">Press Center</h1>
 
       {featured && !q && type === 'All' && (
-        <button onClick={() => setArticle(featured)} className="text-left w-full mt-5 bg-surface-container-low rounded-xl p-5 border border-primary-container/30">
+        <button data-reveal="pop" onClick={() => setArticle(featured)} className="text-left w-full mt-5 bg-surface-container-low rounded-xl p-5 border border-primary-container/30">
           <span className="font-label-caps text-label-caps text-primary uppercase">Featured · {featured.type}</span>
           <h2 className="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">{featured.title}</h2>
           <p className="font-label-sm text-label-sm text-outline mt-2">{featured.date}</p>
@@ -48,7 +50,7 @@ export default function Press() {
 
       <div className="flex flex-col gap-3 mt-4">
         {list.map((p) => (
-          <button key={p.id} onClick={() => setArticle(p)} className="text-left bg-surface-container-low rounded-xl p-4 hover:bg-surface-container transition-colors">
+          <button key={p.id} data-reveal onClick={() => setArticle(p)} className="text-left bg-surface-container-low rounded-xl p-4 hover:bg-surface-container transition-colors">
             <span className="font-label-caps text-label-caps text-primary uppercase">{p.type}</span>
             <h3 className="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">{p.title}</h3>
             <p className="font-label-sm text-label-sm text-outline mt-1">{p.date}</p>
@@ -57,11 +59,11 @@ export default function Press() {
         {list.length === 0 && <p className="text-center py-8 text-on-surface-variant">No results found.</p>}
       </div>
 
-      <h2 className="font-headline-md text-headline-md text-on-surface mt-10 mb-3">Gallery</h2>
+      <SectionTitle eyebrow="Gallery" title="From recent operations" />
       <div className="grid grid-cols-2 gap-3">
         {GALLERY.map((g, i) => (
-          <button key={g.src} onClick={() => setLb(i)} className="aspect-square overflow-hidden rounded-xl">
-            <img src={g.src} alt={g.caption} loading="lazy" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+          <button key={g.name} data-reveal="pop" onClick={() => setLb(i)} className="overflow-hidden rounded-xl" aria-label={g.caption}>
+            <SmartImage name={g.name} alt={g.caption} label={g.caption} icon="photo_camera" className="aspect-square" imgClassName="hover:scale-105 transition-transform" />
           </button>
         ))}
       </div>
@@ -85,7 +87,7 @@ export default function Press() {
           onTouchEnd={(e) => { if (touchX !== null) { const dx = e.changedTouches[0].clientX - touchX; if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1) } setTouchX(null) }}>
           <button className="absolute top-4 right-4 text-white" onClick={() => setLb(null)} aria-label="Close"><Icon name="close" className="text-[32px]" /></button>
           <button className="absolute left-2 text-white" onClick={(e) => { e.stopPropagation(); step(-1) }} aria-label="Previous"><Icon name="chevron_left" className="text-[40px]" /></button>
-          <img src={GALLERY[lb].src} alt={GALLERY[lb].caption} onClick={(e) => e.stopPropagation()} className="max-h-[75vh] max-w-full rounded-lg object-contain" />
+          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-lg"><SmartImage key={GALLERY[lb].name} name={GALLERY[lb].name} alt={GALLERY[lb].caption} label={GALLERY[lb].caption} icon="photo_camera" className="aspect-square rounded-lg" /></div>
           <p className="text-white/80 mt-3 font-body-sm">{GALLERY[lb].caption} · {lb + 1}/{GALLERY.length}</p>
           <button className="absolute right-2 text-white" onClick={(e) => { e.stopPropagation(); step(1) }} aria-label="Next"><Icon name="chevron_right" className="text-[40px]" /></button>
         </div>

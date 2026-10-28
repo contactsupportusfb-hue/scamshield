@@ -96,3 +96,25 @@ drop trigger if exists guard_spam on public.reports;
 create trigger guard_spam before insert on public.reports for each row execute function public.guard_spam('description');
 drop trigger if exists guard_spam on public.messages;
 create trigger guard_spam before insert on public.messages for each row execute function public.guard_spam('body');
+
+-- Job applications from the Careers page.
+create table if not exists public.applications (
+  id uuid primary key default gen_random_uuid(),
+  ref text not null unique,
+  job_id text not null check (char_length(job_id) <= 20),
+  job_title text not null check (char_length(job_title) <= 200),
+  track text not null check (char_length(track) <= 60),
+  applicant_name text not null check (char_length(applicant_name) between 2 and 120),
+  applicant_email text not null check (char_length(applicant_email) <= 200),
+  message text not null check (char_length(message) between 20 and 2000),
+  created_at timestamptz not null default now()
+);
+alter table public.applications enable row level security;
+
+drop policy if exists "anon can insert applications" on public.applications;
+create policy "anon can insert applications" on public.applications for insert to anon with check (true);
+drop policy if exists "staff read applications" on public.applications;
+create policy "staff read applications" on public.applications for select to authenticated using (public.is_staff());
+
+drop trigger if exists guard_spam on public.applications;
+create trigger guard_spam before insert on public.applications for each row execute function public.guard_spam('message');

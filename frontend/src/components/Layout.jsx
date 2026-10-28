@@ -4,6 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import BottomNav from './BottomNav'
 import FloatingButtons from './FloatingButtons'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -12,8 +13,9 @@ function ScrollToTop() {
 }
 
 export default function Layout() {
+  useScrollReveal()
   return (
-    <div className="min-h-dvh flex flex-col">
+    <div className="min-h-dvh flex flex-col overflow-x-clip">
       <ScrollToTop />
       <Header />
       <main className="flex-1"><Outlet /></main>

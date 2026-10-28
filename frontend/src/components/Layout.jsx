@@ -16,7 +16,6 @@ export default function Layout() {
     <div className="min-h-dvh flex flex-col">
       <ScrollToTop />
       <Header />
-      <p className="bg-primary-container/10 border-b border-primary-container/30 text-primary text-center font-label-sm text-label-sm py-1.5 px-4">Independent help · ScamShield is not a government agency or law enforcement</p>
       <main className="flex-1"><Outlet /></main>
       <Footer />
       <FloatingButtons />

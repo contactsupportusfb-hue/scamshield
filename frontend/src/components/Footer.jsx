@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import Emblem from './Emblem'
-import { SITE, FOOTER_GROUPS } from '../data/site'
+import { SITE, FOOTER_GROUPS, SOCIALS } from '../data/site'
 
 export default function Footer() {
   return (
@@ -21,8 +21,11 @@ export default function Footer() {
           ))}
         </div>
         <hr className="border-outline-variant/30 my-6" />
-        <p className="font-body-sm text-body-sm text-on-surface-variant">© {new Date().getFullYear()} {SITE.name}.</p>
-        <p className="font-body-sm text-[11px] text-outline mt-4">ScamShield is an independent information resource. It is not a government agency, law enforcement, or affiliated with any. Information here is general and is not legal or financial advice.</p>
+        <p className="font-body-sm text-body-sm text-on-surface-variant">© 2026 {SITE.name}. All rights reserved.</p>
+        <div className="flex gap-4 mt-2">
+          {SOCIALS.map((s) => <a key={s} href="#" onClick={(e) => e.preventDefault()} className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary">{s}</a>)}
+        </div>
+        <p className="font-body-sm text-[11px] text-outline mt-4">VERITAS is a fictional agency. All content on this site is demonstration content.</p>
       </div>
     </footer>
   )

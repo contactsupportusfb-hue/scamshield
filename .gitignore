@@ -5,17 +5,13 @@ node_modules/
 dist/
 dist-ssr/
 
-# Secrets / local env (ScamShield needs none, but never commit these)
+# Secrets / local env (never commit these)
 .env
 .env.*
+!.env.example
 
 # Vercel
 .vercel/
-
-# Obsolete from the earlier version — kept out of the repo and deploy
-frontend/public/images/
-frontend/public/images.png
-supabase/
 
 # Editor / OS
 .vscode/*

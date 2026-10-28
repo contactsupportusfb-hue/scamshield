@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 pt-safe">
       <div className="max-w-lg mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="flex items-center gap-2" aria-label={`${SITE.name} home`}>
+        <Link to="/" className="flex items-center gap-2" aria-label="VERITAS home">
           <Emblem />
           <span className="flex flex-col leading-none">
             <span className="font-headline-sm text-headline-sm text-on-surface font-bold tracking-wide">{SITE.name}</span>
@@ -26,6 +26,7 @@ export default function Header() {
           </span>
         </Link>
         <div className="flex items-center gap-1">
+          <Link to="/admin" aria-label="Staff sign in" className="p-2 text-on-surface-variant hover:text-primary"><Icon name="person" /></Link>
           <button onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label="Menu" className="p-2 text-on-surface hover:text-primary">
             <Icon name={open ? 'close' : 'menu'} />
           </button>

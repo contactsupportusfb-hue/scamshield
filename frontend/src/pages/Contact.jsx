@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Icon from '../components/Icon'
 import { SITE, OFFICES } from '../data/site'
 import { submitMessage } from '../lib/api'
+import { useSpamGuard } from '../lib/spam'
 
 const inputCls = 'w-full px-3 py-3 rounded-lg bg-surface-container text-on-surface border border-outline-variant/40 placeholder:text-outline'
 const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
@@ -13,6 +14,7 @@ export default function Contact() {
   const [busy, setBusy] = useState(false)
   const [ref, setRef] = useState(null)
   const [fail, setFail] = useState('')
+  const guard = useSpamGuard()
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }))
 
   async function onSubmit(e) {
@@ -26,7 +28,7 @@ export default function Contact() {
     if (Object.keys(er).length) return
     setBusy(true); setFail('')
     try {
-      const r = await submitMessage({ sender_name: form.name.trim(), sender_email: form.email.trim(), subject: form.subject.trim(), body: form.body.trim() })
+      const r = await submitMessage({ sender_name: form.name.trim(), sender_email: form.email.trim(), subject: form.subject.trim(), body: form.body.trim() }, guard)
       setRef(r)
     } catch (err) { setFail(err.message) } finally { setBusy(false) }
   }
@@ -88,6 +90,7 @@ export default function Contact() {
             <textarea rows={5} value={form.body} onChange={set('body')} maxLength={4000} className={`${inputCls} mt-1`} aria-invalid={!!errors.body} />
             {errors.body && <span className="text-error font-body-sm text-body-sm">{errors.body}</span>}
           </label>
+          <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden"><label>Website<input {...guard.trapProps} /></label></div>
           {fail && <p className="text-error font-body-sm">{fail}</p>}
           <button disabled={busy} className="py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold disabled:opacity-60">{busy ? 'Sending…' : 'Send message'}</button>
         </form>

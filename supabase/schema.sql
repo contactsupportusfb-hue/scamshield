@@ -67,3 +67,32 @@ language sql stable security definer set search_path = '' as $$
 $$;
 revoke execute on function public.staff_directory() from public, anon;
 grant execute on function public.staff_directory() to authenticated;
+
+-- Spam guard: runs on every insert, even ones sent straight to the API.
+create or replace function public.guard_spam() returns trigger
+language plpgsql security definer set search_path = '' as $$
+declare
+  txt text := coalesce(to_jsonb(new) ->> tg_argv[0], '');
+  recent int;
+  dupes int;
+begin
+  execute format('select count(*) from public.%I where created_at > now() - interval ''10 minutes''', tg_table_name) into recent;
+  if recent >= 20 then
+    raise exception 'We are receiving a lot of submissions right now. Please try again in a few minutes.';
+  end if;
+  execute format('select count(*) from public.%I where %I = $1 and created_at > now() - interval ''1 day''', tg_table_name, tg_argv[0]) into dupes using txt;
+  if dupes > 0 then
+    raise exception 'This was already submitted.';
+  end if;
+  if (select count(*) from regexp_matches(txt, 'https?://|www\.', 'gi')) > 2 then
+    raise exception 'Too many links. Please remove some and try again.';
+  end if;
+  return new;
+end;
+$$;
+revoke execute on function public.guard_spam() from public, anon, authenticated;
+
+drop trigger if exists guard_spam on public.reports;
+create trigger guard_spam before insert on public.reports for each row execute function public.guard_spam('description');
+drop trigger if exists guard_spam on public.messages;
+create trigger guard_spam before insert on public.messages for each row execute function public.guard_spam('body');

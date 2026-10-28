@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import Icon from '../components/Icon'
 import { REPORT_CATEGORIES, URGENCY_LEVELS } from '../data/content'
 import { submitReport } from '../lib/api'
+import { useSpamGuard } from '../lib/spam'
 
 const inputCls = 'w-full px-3 py-3 rounded-lg bg-surface-container text-on-surface border border-outline-variant/40 placeholder:text-outline'
 
@@ -14,6 +15,7 @@ export default function Report() {
   const [busy, setBusy] = useState(false)
   const [ref, setRef] = useState(null)
   const [fail, setFail] = useState('')
+  const guard = useSpamGuard()
   const set = (k) => (e) => setF((x) => ({ ...x, [k]: e.target.value }))
 
   const pick = (id) => { setCat(id); setErr((e) => ({ ...e, cat: undefined })); setTimeout(() => step2.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80) }
@@ -28,7 +30,7 @@ export default function Report() {
     if (Object.keys(er).length) return
     setBusy(true); setFail('')
     try {
-      const r = await submitReport({ category: cat, urgency, reporter_name: f.name.trim() || null, reporter_email: f.email.trim() || null, location: f.location.trim() || null, description: f.description.trim() })
+      const r = await submitReport({ category: cat, urgency, reporter_name: f.name.trim() || null, reporter_email: f.email.trim() || null, location: f.location.trim() || null, description: f.description.trim() }, guard)
       setRef(r)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } catch (x) { setFail(x.message) } finally { setBusy(false) }
@@ -75,6 +77,7 @@ export default function Report() {
         <label className="block"><span className="font-label-md text-label-md text-on-surface">Description</span><textarea rows={6} value={f.description} onChange={set('description')} maxLength={5000} placeholder="What did you see or learn?" className={`${inputCls} mt-1`} aria-invalid={!!err.description} />{err.description && <span className="text-error font-body-sm">{err.description}</span>}</label>
         <label className="block"><span className="font-label-md text-label-md text-on-surface">Your name <span className="text-outline">(optional)</span></span><input value={f.name} onChange={set('name')} maxLength={120} className={`${inputCls} mt-1`} /></label>
         <label className="block"><span className="font-label-md text-label-md text-on-surface">Email <span className="text-outline">(optional)</span></span><input type="email" value={f.email} onChange={set('email')} maxLength={200} className={`${inputCls} mt-1`} aria-invalid={!!err.email} />{err.email && <span className="text-error font-body-sm">{err.email}</span>}</label>
+        <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden"><label>Website<input {...guard.trapProps} /></label></div>
         {fail && <p className="text-error font-body-sm">{fail}</p>}
         <button disabled={busy} className="py-3.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold disabled:opacity-60">{busy ? 'Submitting…' : 'Submit report'}</button>
       </div>

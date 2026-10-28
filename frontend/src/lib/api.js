@@ -15,17 +15,22 @@ function saveLocal(key, row) {
   } catch { /* storage unavailable */ }
 }
 
-async function submit(table, localKey, prefix, row) {
+async function submit(table, localKey, prefix, row, guard) {
   const ref = makeRef(prefix)
+  const verdict = guard?.check()
+  if (verdict === 'cooldown') throw new Error('Please wait a minute before sending another.')
+  if (verdict === 'bot') return ref // pretend success so bots get no signal
   const payload = { ref, ...row }
   if (supabase) {
     const { error } = await supabase.from(table).insert(payload)
-    if (error) throw new Error('Submission failed. Please try again.')
+    // P0001 = message raised by the spam guard in the database; safe to show.
+    if (error) throw new Error(error.code === 'P0001' ? error.message : 'Submission failed. Please try again.')
   } else {
     saveLocal(localKey, payload)
   }
+  guard?.markSent()
   return ref
 }
 
-export const submitReport = (data) => submit('reports', 'veritas_reports', 'RPT', data)
-export const submitMessage = (data) => submit('messages', 'veritas_contact_messages', 'MSG', data)
+export const submitReport = (data, guard) => submit('reports', 'veritas_reports', 'RPT', data, guard)
+export const submitMessage = (data, guard) => submit('messages', 'veritas_contact_messages', 'MSG', data, guard)

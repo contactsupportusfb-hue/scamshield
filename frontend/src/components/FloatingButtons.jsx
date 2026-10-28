@@ -18,11 +18,11 @@ export default function FloatingButtons() {
   }, [])
   return (
     <>
-      <button onClick={() => setModal(true)} aria-label="Call the Bureau" className="fixed left-4 bottom-24 z-30 w-12 h-12 rounded-full bg-primary-container text-on-primary shadow-xl flex items-center justify-center active:scale-95 transition">
+      <button onClick={() => setModal(true)} aria-label="Call the Bureau" className="fixed left-4 bottom-28 z-30 w-12 h-12 rounded-full bg-primary-container text-on-primary shadow-xl flex items-center justify-center active:scale-95 transition">
         <Icon name="call" fill />
       </button>
       {top && (
-        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" className="fixed right-4 bottom-24 z-30 w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/40 text-on-surface shadow-xl flex items-center justify-center active:scale-95 transition">
+        <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top" className="fixed right-4 bottom-28 z-30 w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/40 text-on-surface shadow-xl flex items-center justify-center active:scale-95 transition">
           <Icon name="keyboard_arrow_up" />
         </button>
       )}

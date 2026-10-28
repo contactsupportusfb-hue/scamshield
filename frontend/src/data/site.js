@@ -2,9 +2,9 @@ export const SITE = {
   name: 'VERITAS',
   tagline: 'BUREAU OF INVESTIGATION',
   blurb: 'A national investigation agency serving the public.',
-  phone: '+1 (779) 386-7948',
-  phoneHref: 'tel:+17793867948',
-  email: 'contactsupportusf@gmail.com',
+  phone: '+1 (555) 010-0100',
+  phoneHref: 'tel:+15550100100',
+  email: 'contact@veritas.example',
 }
 
 export const NAV_LINKS = [

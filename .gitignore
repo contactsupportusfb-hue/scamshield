@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Secrets — never commit these
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel/
+
+# FBI seal — kept out of the repo and the live site on purpose
+frontend/public/images.png
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.log
+*.local

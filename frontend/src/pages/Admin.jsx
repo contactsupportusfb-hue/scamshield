@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Icon from '../components/Icon'
 import { supabase, authLink } from '../lib/supabase'
 import { useStaffAuth } from '../lib/auth'
+import Dashboard from './Dashboard'
 
 const inputCls = 'w-full px-3 py-3 rounded-lg bg-surface-container text-on-surface border border-outline-variant/40 placeholder:text-outline'
 const btnCls = 'w-full py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold disabled:opacity-60'
@@ -208,14 +209,5 @@ export default function Admin() {
     )
   }
 
-  return (
-    <Card icon="verified_user" eyebrow="Signed in · two-step verified" title="Staff area">
-      <div className="bg-surface-container-low rounded-xl p-4">
-        <div className="font-label-md text-label-md text-on-surface">Signed in as</div>
-        <div className="font-body-md text-body-md text-primary break-all">{auth.session.user.email}</div>
-      </div>
-      <p className="font-body-md text-body-md text-on-surface-variant mt-4">The reports and messages dashboard will appear here.</p>
-      <button onClick={signOut} className="w-full mt-5 py-3 rounded-lg bg-surface-bright text-on-surface font-label-md text-label-md">Sign out</button>
-    </Card>
-  )
+  return <Dashboard email={auth.session.user.email} onSignOut={signOut} />
 }

@@ -42,3 +42,28 @@ create policy "staff read own row after 2fa" on public.staff for select to authe
 
 -- To give someone access: invite them first (Authentication > Users > Invite user), then run:
 -- insert into public.staff (user_id) select id from auth.users where email = 'person@example.org';
+
+-- Staff dashboard: listed staff who passed two-step verification can read everything.
+create or replace function public.is_staff() returns boolean
+language sql stable security definer set search_path = '' as $$
+  select coalesce(auth.jwt() ->> 'aal', '') = 'aal2'
+     and exists (select 1 from public.staff where user_id = auth.uid());
+$$;
+revoke execute on function public.is_staff() from public, anon;
+grant execute on function public.is_staff() to authenticated;
+
+drop policy if exists "staff read reports" on public.reports;
+create policy "staff read reports" on public.reports for select to authenticated using (public.is_staff());
+drop policy if exists "staff read messages" on public.messages;
+create policy "staff read messages" on public.messages for select to authenticated using (public.is_staff());
+drop policy if exists "staff read staff list" on public.staff;
+create policy "staff read staff list" on public.staff for select to authenticated using (public.is_staff());
+
+-- Staff emails for the dashboard (auth.users is not readable directly).
+create or replace function public.staff_directory() returns table (email text, added_at timestamptz)
+language sql stable security definer set search_path = '' as $$
+  select u.email::text, s.created_at from public.staff s join auth.users u on u.id = s.user_id
+  where public.is_staff() order by s.created_at;
+$$;
+revoke execute on function public.staff_directory() from public, anon;
+grant execute on function public.staff_directory() to authenticated;

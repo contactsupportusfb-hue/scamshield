@@ -1,34 +1,33 @@
-# VERITAS Bureau of Investigation (fictional demo site)
+# ScamShield
 
-React 18+/Vite/Tailwind front end. Optional Supabase back end. All content is fictional.
+An independent, static guide that helps people recognise scams, know what to do if they've been scammed, and report them to the real authorities.
+
+**ScamShield is not a government agency or law enforcement, and is not affiliated with any.** It collects no personal data: there is no sign-in and no report form. It simply explains the warning signs and links out to the official reporting channels (FTC, FBI IC3, Action Fraud, and others).
+
+## Tech
+
+React + Vite + Tailwind. No backend, no database, no environment variables.
 
 ## Run locally
+
 ```
 cd frontend
 npm install
 npm run dev      # http://localhost:5173
 npm run build    # production build in dist/
 ```
-Without Supabase keys the Report and Contact forms save to your browser only (demo mode).
 
-## Turn on the back end (free)
-1. Create a project at supabase.com.
-2. SQL Editor: paste and run `supabase/schema.sql`.
-3. Project Settings > API: copy the Project URL and the `anon` public key.
-4. Copy `frontend/.env.example` to `frontend/.env` and fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
-Free projects pause after 7 days of inactivity; click "Restore" in the dashboard to wake them.
+## Edit the content
+
+- `frontend/src/data/content.js` — the recovery steps, warning signs, scam types and official reporting links.
+- `frontend/src/data/site.js` — the name, tagline and the contact email shown on the About page. Change `hello@scamshield.example` to your own before sharing.
+
+When you change a reporting link, confirm it against the official site first — accuracy matters here.
 
 ## Deploy on Vercel (free)
+
 1. Push this folder to a GitHub repository.
-2. vercel.com > Add New > Project > import the repo. Set Root Directory to `frontend`. Framework: Vite (auto-detected).
-3. Add the two environment variables above (Settings > Environment Variables), then Deploy.
-`frontend/vercel.json` already rewrites all routes to `index.html` so page refreshes work.
+2. vercel.com → Add New → Project → import the repo. Set **Root Directory** to `frontend`. Framework: Vite (auto-detected).
+3. Deploy. `frontend/vercel.json` already rewrites all routes to `index.html` so page refreshes work.
 
-## Placeholders for the next phases
-Departments, Services, Investigations, Careers, Admin and the legal pages show a "Coming soon" screen.
-
-## Security roadmap
-- Staff sign-in with Supabase Auth + MFA (TOTP); admin dashboard reading `reports`/`messages` via an RLS policy for staff only.
-- Rate limiting and CAPTCHA (e.g. Cloudflare Turnstile) on the public forms.
-- Security headers (CSP, HSTS) in `vercel.json`.
-- Never put the `service_role` key in the front end.
+No environment variables are needed.

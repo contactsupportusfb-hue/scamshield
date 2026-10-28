@@ -5,16 +5,17 @@ node_modules/
 dist/
 dist-ssr/
 
-# Secrets — never commit these
+# Secrets / local env (ScamShield needs none, but never commit these)
 .env
 .env.*
-!.env.example
 
 # Vercel
 .vercel/
 
-# FBI seal — kept out of the repo and the live site on purpose
+# Obsolete from the earlier version — kept out of the repo and deploy
+frontend/public/images/
 frontend/public/images.png
+supabase/
 
 # Editor / OS
 .vscode/*

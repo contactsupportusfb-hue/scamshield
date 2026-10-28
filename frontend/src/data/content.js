@@ -1,73 +1,68 @@
-export const STATS = [
-  { value: 11479, suffix: '+', label: 'Cases Resolved' },
-  { value: 51, suffix: '', label: 'Field Offices' },
-  { value: 33575, suffix: '+', label: 'Personnel' },
-  { value: 104, suffix: '', label: 'Years of Service' },
+// All guidance here is general information, not legal or financial advice.
+// Official reporting links are the authoritative source — always follow them.
+
+// What to do right after being scammed, in order.
+export const RECOVERY_STEPS = [
+  { icon: 'block', title: 'Stop all contact and payments', text: 'Do not send any more money, gift cards or crypto, and stop replying. Scammers often push harder once you hesitate. Breaking contact is the first and most important step.' },
+  { icon: 'account_balance', title: 'Tell your bank or card provider now', text: 'Call the number on the back of your card straight away. Ask them to stop or reverse the payment, freeze the card and watch for more charges. The sooner you call, the better the chance of recovering money.' },
+  { icon: 'lock_reset', title: 'Secure your accounts', text: 'Change the passwords for any account the scammer may have reached, starting with email and banking. Turn on two-step verification. Never reuse the same password across sites.' },
+  { icon: 'badge', title: 'Protect your identity', text: 'If you shared ID details (date of birth, national ID, card numbers), you may be at risk of identity theft. In the US, go to identitytheft.gov for a recovery plan and consider a free credit freeze.' },
+  { icon: 'photo_library', title: 'Save the evidence', text: 'Keep screenshots, emails, texts, receipts, phone numbers, usernames and payment references. You will need them when you report, and they help investigators spot patterns.' },
+  { icon: 'flag', title: 'Report it officially', text: 'Report to the real fraud authority for your country (see Where to report). This will not always get your money back, but it helps shut scams down and warns others.' },
+  { icon: 'warning', title: 'Watch for a second "recovery" scam', text: 'Victims are often targeted again by people who claim they can get the lost money back for a fee. No legitimate agency charges to recover funds. Treat any such offer as a scam.' },
+  { icon: 'volunteer_activism', title: 'Be kind to yourself', text: 'Scams are designed by professionals to fool anyone. Being caught is not your fault. Talk to someone you trust, and reach out to a support service if you feel overwhelmed.' },
 ]
 
-export const MANDATE = [
-  { icon: 'shield', title: 'Protect', text: 'Safeguard the public from serious crimes and hostile threats across international, domestic, and digital jurisdictions.' },
-  { icon: 'fingerprint', title: 'Investigate', text: 'Pursue truth through rigorous, evidence-based investigation, forensic analysis, and comprehensive intelligence aggregation.' },
-  { icon: 'lock', title: 'Uphold', text: 'Defend the law with unyielding integrity, absolute transparency, and sworn impartiality.' },
+// Red flags that something is a scam.
+export const WARNING_SIGNS = [
+  { icon: 'bolt', title: 'Pressure and urgency', text: '"Act now", "your account will be closed", "you will be arrested". Real organisations give you time; scammers manufacture panic so you cannot think.' },
+  { icon: 'card_giftcard', title: 'Unusual payment methods', text: 'Requests for gift cards, cryptocurrency, wire transfers or payment apps are a major red flag. These are hard to trace and reverse, which is exactly why scammers want them.' },
+  { icon: 'password', title: 'Asking for codes or passwords', text: 'No genuine bank, agency or company will ask for your password or a one-time code. Anyone who does is trying to take over your account.' },
+  { icon: 'sentiment_very_satisfied', title: 'Too good to be true', text: 'Guaranteed profits, surprise lottery wins, dream jobs with little work, or a stranger who falls for you fast. If it seems too good to be true, it is.' },
+  { icon: 'call', title: 'Unexpected contact', text: 'A call, text or email you were not expecting, especially one that claims to be the government, your bank or tech support. Hang up and contact the organisation using a number you find yourself.' },
+  { icon: 'link_off', title: 'Odd links and details', text: 'Misspelled web addresses, public email domains pretending to be official, or links that do not match the real site. Type the address yourself instead of clicking.' },
 ]
 
-export const DIVISIONS = [
-  { tag: 'Digital', title: 'Cyber Crime Division', text: 'Investigating cyber intrusions, hostile infrastructure, ransomware syndicates, and online threats to national security.' },
-  { tag: 'Fraud & Assets', title: 'Financial Crimes', text: 'Tracing complex money laundering networks, offshore shadow finance, corporate malfeasance, and systemic fraud schemes.' },
-  { tag: 'National Security', title: 'Counter Terrorism', text: 'Neutralizing hostile threat vectors and disrupting extremist activities both at home and across allied operational theaters.' },
-  { tag: 'Enterprise', title: 'Organized Crime', text: 'Dismantling multi-jurisdictional criminal enterprises, cross-border trafficking rings, and racketeering syndicates.' },
+// Common scam types to recognise.
+export const SCAM_TYPES = [
+  { icon: 'phishing', title: 'Phishing', text: 'Fake emails, texts or sites that copy a real company to steal your logins or card details.' },
+  { icon: 'favorite', title: 'Romance scams', text: 'Someone builds an online relationship, then invents an emergency and asks for money.' },
+  { icon: 'trending_up', title: 'Investment & crypto', text: 'Promises of high, guaranteed returns. Fake trading platforms that show fake profits until you try to withdraw.' },
+  { icon: 'support_agent', title: 'Tech support', text: 'A pop-up or caller says your device is infected and asks for remote access or payment to "fix" it.' },
+  { icon: 'account_balance', title: 'Impostor scams', text: 'Callers pretending to be the government, police, your bank or a well-known company to frighten you into paying.' },
+  { icon: 'work', title: 'Job & task scams', text: 'Fake jobs that ask you to pay upfront, launder money, or complete "tasks" that never really pay out.' },
+  { icon: 'shopping_cart', title: 'Shopping scams', text: 'Fake online shops or marketplace listings that take your money and never deliver.' },
+  { icon: 'emoji_events', title: 'Prize & lottery', text: 'You "won" something you never entered, but must pay a fee or tax to claim it.' },
 ]
 
-export const TESTIMONIALS = [
-  { name: 'Dana R.', role: 'Community Leader', text: 'The Bureau responded within hours of our tip and kept us informed throughout.' },
-  { name: 'Marcus T.', role: 'Small Business Owner', text: 'Professional, discreet and thorough. They recovered what we thought was lost for good.' },
-  { name: 'Elena V.', role: 'University Researcher', text: 'Their cyber division helped us secure our network after a serious intrusion.' },
-  { name: 'Samuel O.', role: 'Retired Teacher', text: 'I reported a scam targeting seniors and saw arrests within weeks.' },
-  { name: 'Priya K.', role: 'Hospital Administrator', text: 'Clear communication and real expertise. We felt supported at every step.' },
-  { name: 'Jonas B.', role: 'Local Official', text: 'A trustworthy partner for our region. Their field office is outstanding.' },
+// Official reporting channels. US first, then other countries.
+export const REPORT_CHANNELS = [
+  {
+    region: 'United States',
+    items: [
+      { name: 'FTC — reportfraud.ftc.gov', note: 'The main place to report scams and fraud of any kind.', href: 'https://reportfraud.ftc.gov' },
+      { name: 'FBI IC3 — ic3.gov', note: 'For online crime and internet-enabled fraud.', href: 'https://www.ic3.gov' },
+      { name: 'IdentityTheft.gov', note: 'If your personal information was stolen — includes a recovery plan.', href: 'https://www.identitytheft.gov' },
+    ],
+  },
+  {
+    region: 'United Kingdom',
+    items: [
+      { name: 'Action Fraud — actionfraud.police.uk', note: 'England, Wales & Northern Ireland. Phone 0300 123 2040.', href: 'https://www.actionfraud.police.uk' },
+      { name: 'Police Scotland', note: 'In Scotland, report fraud by calling 101.', href: 'https://www.scotland.police.uk' },
+    ],
+  },
+  {
+    region: 'Canada',
+    items: [
+      { name: 'Canadian Anti-Fraud Centre', note: 'antifraudcentre-centreantifraude.ca · 1-888-495-8501.', href: 'https://antifraudcentre-centreantifraude.ca' },
+    ],
+  },
+  {
+    region: 'Australia',
+    items: [
+      { name: 'Scamwatch — scamwatch.gov.au', note: 'Report scams to the ACCC.', href: 'https://www.scamwatch.gov.au' },
+      { name: 'ReportCyber — cyber.gov.au', note: 'For cybercrime and online fraud.', href: 'https://www.cyber.gov.au' },
+    ],
+  },
 ]
-
-export const ARREST_FILTERS = ['All', 'Financial', 'Organized', 'Cyber']
-
-export const ARRESTS = [
-  { ref: '24-AR-01203', category: 'Financial', title: 'Offshore Fraud Ring Dismantled', date: 'Oct 12, 2026', location: 'Capital District', summary: 'Seven suspects arrested in connection with a coordinated investment fraud scheme.',
-    details: ['Charges: wire fraud, money laundering, conspiracy', 'Estimated losses: $48 million across 1,200 victims', 'Lead office: Headquarters, Financial Crimes Division', 'Status: Awaiting trial'] },
-  { ref: '24-AR-01195', category: 'Organized', title: 'Cross-Border Trafficking Network', date: 'Oct 03, 2026', location: 'Harbor City', summary: 'A joint operation led to the arrest of twelve members of a racketeering syndicate.',
-    details: ['Charges: racketeering, trafficking, weapons offences', 'Joint operation with three regional partners', 'Lead office: North-East Field Office', 'Status: In custody, hearing scheduled'] },
-  { ref: '24-AR-01187', category: 'Cyber', title: 'Ransomware Operators Apprehended', date: 'Sep 21, 2026', location: 'Bayview', summary: 'Two operators of a ransomware group targeting hospitals were taken into custody.',
-    details: ['Charges: computer intrusion, extortion', 'Servers seized and decryption keys recovered', 'Lead office: West Coast Field Office, Cyber Crime Division', 'Status: Pre-trial detention'] },
-]
-
-export const PRESS_FILTERS = ['All', 'Press Release', 'Statement', 'Announcement']
-
-export const PRESS = [
-  { id: 1, type: 'Press Release', title: 'Bureau Announces Record Year in Fraud Recoveries', date: 'Oct 20, 2026', featured: true, body: 'The Bureau today announced that fraud recoveries reached a record high this year, returning funds to thousands of victims. Director statements highlighted the role of public tips and inter-agency partnerships.' },
-  { id: 2, type: 'Statement', title: 'Statement on Recent Cyber Intrusions', date: 'Oct 14, 2026', body: 'We are aware of a series of intrusions affecting regional hospitals. Our Cyber Crime Division is working with affected organizations and will share further guidance shortly.' },
-  { id: 3, type: 'Announcement', title: 'New Field Office Opens in Lakeport', date: 'Oct 08, 2026', body: 'The Midwest Field Office opens its doors, expanding the Bureau’s ability to support local partners and communities.' },
-  { id: 4, type: 'Press Release', title: 'Public Tip Line Receives Upgrade', date: 'Sep 30, 2026', body: 'The secure tip line now supports encrypted submissions and faster triage by operational analysts.' },
-  { id: 5, type: 'Announcement', title: 'Applications Open for Analyst Training Program', date: 'Sep 18, 2026', body: 'Applications are now open for the Bureau’s annual analyst training program for early-career professionals.' },
-]
-
-export const GALLERY = [
-  { src: '/images/hq.jpg', caption: 'Bureau headquarters at dusk' },
-  { src: '/images/cyber.jpg', caption: 'Cyber Crime Division agents' },
-  { src: '/images/escort.jpg', caption: 'Special agents on operation' },
-  { src: '/images/taskforce.jpg', caption: 'Joint task force team' },
-]
-
-export const REPORT_CATEGORIES = [
-  { id: 'fraud', label: 'Fraud & Scams', icon: 'payments' },
-  { id: 'cyber', label: 'Cyber Crime', icon: 'terminal' },
-  { id: 'terror', label: 'Terrorism', icon: 'warning' },
-  { id: 'organized', label: 'Organized Crime', icon: 'groups' },
-  { id: 'trafficking', label: 'Trafficking', icon: 'local_shipping' },
-  { id: 'corruption', label: 'Corruption', icon: 'gavel' },
-  { id: 'violent', label: 'Violent Crime', icon: 'personal_injury' },
-  { id: 'child', label: 'Child Safety', icon: 'child_care' },
-  { id: 'drugs', label: 'Narcotics', icon: 'medication' },
-  { id: 'weapons', label: 'Weapons', icon: 'security' },
-  { id: 'missing', label: 'Missing Persons', icon: 'person_search' },
-  { id: 'other', label: 'Other', icon: 'help' },
-]
-
-export const URGENCY_LEVELS = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']

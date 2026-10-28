@@ -3,7 +3,7 @@ export const SITE = {
   tagline: 'SPOT IT · STOP IT · REPORT IT',
   blurb: 'An independent guide that helps people recognise scams and report them to the right authorities. ScamShield is not a government agency or law enforcement.',
   // Fill these in with your own details before sharing the site.
-  email: 'hello@scamshield.example',
+  email: 'contactsupportusf@gmail.com',
 }
 
 export const NAV_LINKS = [
